@@ -1,0 +1,574 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>CDC Vouchers Perception Gap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --teal:#00B2A9; --teal-dark:#007A73; --teal-light:#B2E8E6; --teal-bg:#E8F8F7;
+  --ink:#0E1A1A; --text:#1F2B2B; --muted:#5C6B6B; --line:#DCE4E3; --ground:#F5F7F7; --paper:#FFFFFF;
+  --pos:#007A73; --neu:#B7C3C2; --neg:#C8553D; --amber:#B7791F; --grey:#7D8C8B;
+  --hero-ink:#FFFFFF; --hero-bg:#00B2A9; --chip-bg:#E8F8F7;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --teal:#2CC9C0; --teal-dark:#5FD6CF; --teal-light:#164543; --teal-bg:#10302F;
+    --ink:#F1F6F6; --text:#D9E3E2; --muted:#93A4A3; --line:#26393A; --ground:#0C1515; --paper:#122021;
+    --pos:#3CC4B9; --neu:#4E6362; --neg:#E27A63; --amber:#E0A94A; --grey:#8FA09F;
+    --hero-ink:#FFFFFF; --hero-bg:#00857E; --chip-bg:#10302F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --teal:#2CC9C0; --teal-dark:#5FD6CF; --teal-light:#164543; --teal-bg:#10302F;
+  --ink:#F1F6F6; --text:#D9E3E2; --muted:#93A4A3; --line:#26393A; --ground:#0C1515; --paper:#122021;
+  --pos:#3CC4B9; --neu:#4E6362; --neg:#E27A63; --amber:#E0A94A; --grey:#8FA09F;
+  --hero-ink:#FFFFFF; --hero-bg:#00857E; --chip-bg:#10302F;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.6;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3,h4{color:var(--ink);text-wrap:balance;line-height:1.25;margin:0}
+h2{font-size:clamp(24px,3.2vw,32px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+h4{font-size:15px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+a{color:var(--teal-dark)}
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-ink);margin-inline:-16px;padding:40px 16px 36px}
+.hero .wrap{display:grid;gap:18px}
+.logo{font-weight:800;letter-spacing:.01em;font-size:15px;display:flex;align-items:center;gap:8px}
+.logo svg{width:26px;height:18px}
+.hero h1{color:var(--hero-ink);font-size:clamp(30px,5vw,50px);font-weight:900;letter-spacing:-.02em;max-width:20ch}
+.hero .sub{font-size:17px;max-width:62ch;opacity:.95}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;opacity:.92}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:6px}
+.kpi{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:30px;font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;opacity:.95}
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);margin-inline:-16px;padding:10px 16px}
+nav.toc .wrap{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--text);font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--teal);color:var(--teal-dark);outline:none}
+section{padding-top:44px;display:grid;gap:18px;scroll-margin-top:60px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark)}
+.lede{font-size:16px;max-width:72ch}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+ul.chev{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.chev li{position:relative;padding-left:18px}
+ul.chev li::before{content:"›";position:absolute;left:2px;top:-1px;color:var(--teal);font-weight:900;font-size:17px}
+/* tags */
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;vertical-align:1px;margin-right:6px}
+.t-data{background:var(--teal-bg);color:var(--teal-dark);border:1px solid var(--teal-light)}
+.t-int{background:transparent;color:var(--amber);border:1px dashed var(--amber)}
+.legend-note{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--muted);align-items:center}
+/* quotes */
+blockquote{margin:0;padding:12px 14px;border-left:3px solid var(--teal);background:var(--ground);border-radius:0 8px 8px 0;font-size:14px}
+blockquote.neg{border-left-color:var(--neg)}
+blockquote.neu{border-left-color:var(--grey)}
+blockquote cite{display:block;margin-top:6px;font-style:normal;font-size:12px;color:var(--muted)}
+.quotes{display:grid;gap:10px}
+/* sentiment panels */
+.sent-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
+.sent-head .big{font-size:38px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+.pos .big{color:var(--pos)} .neg .big{color:var(--neg)} .neu .big{color:var(--grey)}
+.sent-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.sent-body h4{margin-bottom:6px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:860px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--ground);font-weight:700;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+td.obj{font-weight:700;color:var(--ink);min-width:170px}
+.chip{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.c-strong{background:var(--pos);color:#fff}
+.c-partial{background:var(--teal-bg);color:var(--teal-dark);border-color:var(--teal-light)}
+.c-mis{background:transparent;color:var(--amber);border-color:var(--amber)}
+.c-nv{background:transparent;color:var(--grey);border-color:var(--grey);border-style:dashed}
+.c-chal{background:var(--neg);color:#fff}
+.p-high{background:var(--neg);color:#fff}
+.p-med{background:transparent;color:var(--amber);border-color:var(--amber)}
+.p-low{background:transparent;color:var(--grey);border-color:var(--grey)}
+/* charts */
+.chart{width:100%;overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto;min-width:560px}
+.chart svg text{fill:var(--muted);font-family:var(--font);font-size:11px}
+.chart svg .lbl{fill:var(--ink);font-weight:600;font-size:12px}
+.chart svg .val{fill:var(--ink);font-weight:700;font-size:11.5px}
+.chart svg .grid{stroke:var(--line);stroke-width:1}
+.chart svg .ann{fill:var(--text);font-size:11px;font-weight:600}
+.keys{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
+/* objective cards */
+.obj-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px;align-content:start}
+.obj-card .n{font-family:var(--mono);font-size:11px;color:var(--teal-dark);letter-spacing:.08em}
+/* recs */
+.rec{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:14px}
+.rec-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.rec dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 20px;margin:0}
+.rec dt{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;margin-bottom:2px}
+.rec dd{margin:0;font-size:14px}
+.rec .example{grid-column:1/-1;background:var(--teal-bg);border-radius:8px;padding:12px 14px;color:var(--ink)}
+.cat{font-size:11.5px;color:var(--muted);font-weight:600}
+/* conclusion */
+.concl{background:var(--paper);border:2px solid var(--teal);border-radius:14px;padding:24px;display:grid;gap:22px}
+ol.num{margin:0;padding-left:22px;display:grid;gap:10px}
+ol.num li::marker{color:var(--teal-dark);font-weight:800}
+.stat-inline{font-weight:800;color:var(--teal-dark);font-variant-numeric:tabular-nums}
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot .logo{color:var(--teal)}
+details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+summary{cursor:pointer;font-weight:700;color:var(--ink)}
+summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+@media (max-width:560px){ .hero{padding-top:28px} .kpi b{font-size:26px} .panel,.rec,.concl{padding:16px} }
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+html{scroll-behavior:smooth}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><svg viewBox="0 0 26 18" aria-hidden="true"><path d="M7 2 1 9l6 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="m19 2 6 7-6 7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="9" r="3.6" fill="#fff"/></svg>Meltwater &nbsp;·&nbsp; Media &amp; Social Intelligence</div>
+    <h1>CDC Vouchers: what was said vs. what was heard</h1>
+    <p class="sub">A perception-gap analysis of Singapore's CDC Vouchers Scheme across mainstream media, radio and social media, prepared for the People's Association and the five Community Development Councils.</p>
+    <div class="meta"><span>Monitoring window: 1 May – 31 Jul 2026</span><span>Sources: supplied dataset (2 tabs: SM Quarterly, MSM Quarterly)</span><span>Languages: English, Chinese, Malay, Tamil</span></div>
+    <div class="kpis">
+      <div class="kpi"><b>465</b><span>relevant mentions (322 media · 143 social posts)</span></div>
+      <div class="kpi"><b>9,358</b><span>comments on relevant social posts</span></div>
+      <div class="kpi"><b>88%</b><span>of those comments sat on posts whose comment sentiment was rated negative</span></div>
+      <div class="kpi"><b>74%</b><span>of social engagement landed on just 3 announcement days</span></div>
+      <div class="kpi"><b>3.1%</b><span>of social engagement went to CDC / MP / Mayor owned channels</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections"><div class="wrap">
+  <a href="#objectives">1 · Objectives</a><a href="#perception">2 · Public perception</a><a href="#gaps">3 · Perception gaps</a><a href="#audience">4 · Audience &amp; channels</a><a href="#recs">5 · Recommendations</a><a href="#conclusion">6 · Executive conclusion</a><a href="#method">Method &amp; limits</a>
+</div></nav>
+
+<main class="wrap">
+
+<section aria-label="How to read">
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>How to read this report</h3>
+    <div class="legend-note">
+      <span><span class="tag t-data">Data</span>a count, figure or quote taken directly from the supplied dataset</span>
+      <span><span class="tag t-int">Interpretation</span>Meltwater's analytical reading of that evidence</span>
+    </div>
+    <p class="muted" style="font-size:13.5px">No separate reference documents were supplied with the dataset, so the scheme's intended objectives (Section 1) are drawn from official statements quoted <em>within</em> the coverage (DPM Gan Kim Yong, Minister Edwin Tong, Mayor Low Yen Ling, Minister Jeffrey Siow, PM Lawrence Wong). The dataset contains no demographic fields and no verbatim social comments; public reaction is evidenced through analyst-assigned comment sentiment, six narrative comment write-ups, radio call-in segments, vox pops and letters. See <a href="#method">Method &amp; limits</a>.</p>
+  </div>
+</section>
+
+<!-- 1 OBJECTIVES -->
+<section id="objectives">
+  <div class="eyebrow">Section 1</div>
+  <h2>Intended objectives and key messages</h2>
+  <p class="lede">Officials consistently framed the scheme around a <strong>dual objective</strong>, household relief plus heartland business support, and in 2026 added a crisis-response layer tied to the Middle East conflict.</p>
+  <div class="grid3">
+    <div class="obj-card"><span class="n">OBJECTIVE A</span><h3>Help households with daily expenses</h3><p>$500 per Singaporean household (June 2026; ~1.38 million households); a further $300 in January 2027, making $800 for FY2026. Valid until 31 Dec 2027.</p><blockquote>"Every dollar spent helps your household, and also supports local businesses in your community."<cite>DPM Gan Kim Yong, launch, 11 Jun (Mothership)</cite></blockquote></div>
+    <div class="obj-card"><span class="n">OBJECTIVE B</span><h3>Ease cost-of-living pressures</h3><p>The January 2027 tranche was brought forward to June "as the Government understands Singaporeans' cost of living concerns"; the July top-up is meant to "cushion the impact of inflation."</p><blockquote>"The vouchers are to help with daily expenses and cushion the impact of inflation."<cite>Second Minister for Finance Jeffrey Siow, 29 Jul (ST)</cite></blockquote></div>
+    <div class="obj-card"><span class="n">OBJECTIVE C</span><h3>Support hawkers and heartland merchants</h3><p>$250 is reserved for 24,000+ participating hawkers and heartland merchants; $250 for eight supermarket chains (~400 outlets).</p><blockquote>"Remember that when you use your vouchers, you are supporting the hawkers and businesses that serve our neighbourhoods every day."<cite>PM Lawrence Wong, 11 Jun video (Berita Harian, translated)</cite></blockquote></div>
+    <div class="obj-card"><span class="n">OBJECTIVE D</span><h3>Keep spending in local communities</h3><p>Vouchers are deliberately restricted to physical neighbourhood outlets to drive footfall and neighbourhood vibrancy. Online use was ruled out because it "would deviate from the dual objective."</p><blockquote>"[The scheme aims] to help households with daily expenses; and to support hawkers and heartland merchants and bring vibrancy to neighbourhoods."<cite>Minister Edwin Tong, written reply, 7 May (8world, translated)</cite></blockquote></div>
+    <div class="obj-card"><span class="n">OBJECTIVE E</span><h3>Reassure: "your government will act"</h3><p>Bringing the tranche forward was positioned as timely reassurance, backed by prudent reserves, with a promise of more help if conditions worsened.</p><blockquote>"I know what many of you are thinking: the CDC vouchers were meant for January next year… 'Will there still be support later on?'"<cite>PM Wong, May Day Rally, 1 May (CNA)</cite></blockquote></div>
+    <div class="obj-card"><span class="n">OTHER STATED MESSAGES</span><h3>Accessible, useful, and a shared effort</h3><ul class="chev">
+      <li><strong>Useful and accessible:</strong> "Its high utilisation rate indicates that Singaporeans have found the CDC voucher scheme to be useful as well as accessible" (Mayor Low, 94.5% claim rate for the Jan 2026 tranche).</li>
+      <li><strong>Assisted access:</strong> seniors can get help at Community Centres and SG Digital Community Hubs, or collect paper vouchers.</li>
+      <li><strong>Partnership / "we-first":</strong> the vouchers reflect a "spirit of partnership" (DPM Gan) and work alongside community and business schemes (Minister Chee Hong Tat).</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 2 PERCEPTION -->
+<section id="perception">
+  <div class="eyebrow">Section 2</div>
+  <h2>Public perception</h2>
+  <p class="lede">Two layers are measured separately: the <strong>content</strong> of media articles and social posts, and the <strong>reaction</strong> in social comment sections. They tell very different stories.</p>
+
+  <div class="panel" style="display:grid;gap:14px">
+    <h3>Sentiment by layer</h3>
+    <p class="muted" style="font-size:13.5px"><span class="tag t-data">Data</span>Media items were re-coded by Meltwater for evaluative language only; the source tagged all 322 as neutral. Social post sentiment is taken from the dataset. Comment-section sentiment is analyst-assigned per post and weighted here by comment count.</p>
+    <div class="chart" id="sentChart" role="img" aria-label="Stacked bars showing sentiment share for media content, social post content, and social comment sections"></div>
+    <div class="keys"><span><span class="dot" style="background:var(--pos)"></span>Positive</span><span><span class="dot" style="background:var(--neu)"></span>Neutral</span><span><span class="dot" style="background:var(--neg)"></span>Negative</span><span><span class="dot" style="background:var(--line)"></span>Unclassified</span></div>
+    <p><span class="tag t-int">Interpretation</span>Coverage is informational, not hostile. But where the public speaks in its own words, on news-page comment threads, the reaction to the scheme is mostly negative. Positive stories (for example, the PM's "fish" anecdote) did not reverse this: both high-reach reposts carried negative comment sections.</p>
+  </div>
+
+  <div class="panel pos">
+    <div class="sent-head"><div><h3><span class="dot" style="background:var(--pos)"></span>Positive</h3><p class="muted" style="font-size:13px">65 of 465 mentions (14.0%) · 35 media (10.9%) · 30 social posts (21.0%) · 807 comments (8.6%) on positively-rated comment sections</p></div><span class="big">14.0%</span></div>
+    <div class="sent-body">
+      <div><h4>Main narratives</h4><ul class="chev">
+        <li><strong>Merchants feel the lift.</strong> Stallholders report 20–50% more customers when a new tranche lands; 30–40% of customers at some stalls pay with vouchers.</li>
+        <li><strong>Practical help for essentials.</strong> Vox pops cite diapers, milk powder, cooking oil and hawker meals.</li>
+        <li><strong>Timely reassurance (May only).</strong> May Day comment sections thanked the PM and Government for acting early.</li>
+        <li><strong>Third-party validation.</strong> Economists, UOB's consumer index, scholars and a Lianhe Zaobao editorial call the support "timely"; Johor officials model their scheme on it.</li></ul></div>
+      <div><h4>Aspects driving it</h4><p>Merchant footfall; ease of use ("most merchants accept"); supermarket promotions that stretch the value ($6 return vouchers, 50% off staples); the bring-forward, in May only.</p>
+        <h4 style="margin-top:12px">Where it is most prominent</h4><p>CDC/MP owned posts (16 of 37 owned posts rated positive); community-language press features (Berita Harian, Tamil Murasu, Lianhe Zaobao vox pops); English radio hosts (ONE FM, Gold 905).</p>
+        <h4 style="margin-top:12px">Sustained or event-driven?</h4><p><span class="tag t-int">Interpretation</span>Largely <strong>event-driven</strong>. Positive comment reaction was confined to the pre-launch window (70.5% of pre-launch comments sat on positive-rated posts) and did not recur after 11 Jun.</p></div>
+      <div class="quotes">
+        <blockquote>"Many netizens expressed support and appreciation for the CDC voucher support measures, thanking Prime Minister Lawrence Wong and the Government for assisting Singaporeans during cost-of-living pressures."<cite>Analyst summary of comments · Mothership FB, 1 May (416 comments)</cite></blockquote>
+        <blockquote>"We used the CDC vouchers to order fish! If not, we would only order bak kut teh."<cite>Diner to PM Wong · Mothership FB, 25 Jun</cite></blockquote>
+        <blockquote>"Customer numbers rose by 50% after they received the vouchers." (translated)<cite>Stall owner Zaheera Rasool · Berita Harian, 11 Jun</cite></blockquote>
+        <blockquote>"The vouchers are very convenient; most merchants accept them." (translated)<cite>Housewife, 56, Jurong West · Lianhe Zaobao, 11 Jun</cite></blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel neg">
+    <div class="sent-head"><div><h3><span class="dot" style="background:var(--neg)"></span>Negative</h3><p class="muted" style="font-size:13px">24 of 465 mentions (5.2%) · 17 media (5.3%) · 7 social posts (4.9%) · <strong>8,193 comments (87.6%)</strong> on negatively-rated comment sections across 94 posts</p></div><span class="big">87.6%</span></div>
+    <div class="sent-body">
+      <div><h4>Main narratives and concerns</h4><ul class="chev">
+        <li><strong>"A temporary plaster."</strong> Vouchers seen as not addressing inflation, GST hikes, utility bills or fuel duties.</li>
+        <li><strong>"Not additional, just shifted."</strong> Bringing the Jan 2027 tranche forward was read as moving aid, not adding it, with fears the Jan 2027 payout would disappear.</li>
+        <li><strong>Per-household design.</strong> Repeated calls for per-individual or household-size-based amounts; larger families say $500 runs out fast.</li>
+        <li><strong>Insufficient quantum.</strong> $300 top-up seen as too small; "gone within the month."</li>
+        <li><strong>"Our own money."</strong> Vouchers described as taxpayers' money returned.</li>
+        <li><strong>Behavioural critique (Chinese press).</strong> Vouchers encourage impulse spending and dependence on government.</li>
+        <li><strong>Fraud.</strong> Outrage at a salon worker jailed for spending $1,167 of customers' vouchers.</li></ul></div>
+      <div><h4>Aspects driving it</h4><p>Voucher value vs rising prices; per-household allocation; timing of tranches; payment form (vouchers vs cash); short supermarket promotion windows; digital link security.</p>
+        <h4 style="margin-top:12px">Where it is most prominent</h4><p>Comment sections of mainstream news pages on Facebook (AsiaOne, Mothership, CNA, ST, 8world, Lianhe Zaobao); Lianhe Zaobao forum/commentary (10 of 17 negative media items); Money FM 89.3 listener segments (5).</p>
+        <h4 style="margin-top:12px">Sustained or event-driven?</h4><p><span class="tag t-int">Interpretation</span><strong>Sustained in theme, event-triggered in volume.</strong> The same three complaints (value, per-household, "just shifted") reappear on 7 Apr, 11 Jun and 29 Jul. Media criticism peaks <em>between</em> announcements (14 of 17 negative media items fall 18 Jun–28 Jul).</p></div>
+      <div class="quotes">
+        <blockquote class="neg">"Many netizens criticised… that the temporary vouchers did not address underlying issues such as inflation, GST hikes and rising household expenses. Some also claimed that the vouchers were funded by taxpayers and merely returned a portion of their own money."<cite>Analyst summary · AsiaOne FB, 11 Jun (551 comments)</cite></blockquote>
+        <blockquote class="neg">"…bringing forward CDC vouchers did not provide additional assistance but merely shifted future aid forward, with concerns that the planned Jan 2027 payouts may be removed."<cite>Analyst summary · Mothership FB, 7 Apr announcement (571 comments)</cite></blockquote>
+        <blockquote class="neg">"The additional S$300 CDC vouchers were insufficient to offset rising living costs… [netizens] expressed concerns that prices and utility bills would increase after the payout."<cite>Analyst summary · CNA FB, 29 Jul (353 comments)</cite></blockquote>
+        <blockquote class="neg">"The $500 vouchers are a big help… but they will be used up very quickly." (translated)<cite>Mother of four, Hougang · Tamil Murasu, 14 Jun</cite></blockquote>
+        <blockquote class="neg">"The $500 can ease the immediate grocery bill, but not the chronic anxiety of watching overall prices rise." (translated)<cite>Red Ant column · Lianhe Zaobao, 13 Jun</cite></blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel neu">
+    <div class="sent-head"><div><h3><span class="dot" style="background:var(--grey)"></span>Neutral</h3><p class="muted" style="font-size:13px">375 of 465 mentions (80.6%) · 270 media (83.9%) · 105 social posts (73.4%) · 102 comments (1.1%)</p></div><span class="big">80.6%</span></div>
+    <div class="sent-body">
+      <div><h4>Main narratives and questions</h4><ul class="chev">
+        <li><strong>How and when to claim</strong>: go.gov.sg/cdcv, Singpass, SMS link, validity to Dec 2027.</li>
+        <li><strong>Supermarket tie-ins</strong>: FairPrice, Sheng Siong, Prime, Giant/Cold Storage promotions (46 media items).</li>
+        <li><strong>Uptake statistics</strong>: 94.5% claim rate; $4.64b spent across tranches; 500k households claimed on day one.</li>
+        <li><strong>Policy debate on scope</strong>: industry calls to extend vouchers to pharmacies, convenience stores and F&amp;B ahead of the RTS Link (22 items).</li>
+        <li><strong>Questions</strong>: "When will the $500 be issued?" (netizens, early June); "Why is January's tranche $300, not $500?" (media, 29 Jul); "Would expanding vouchers actually keep spending local?" (Money FM).</li></ul></div>
+      <div><h4>Aspects driving it</h4><p>Announcement mechanics, economic context (retail data, inflation forecasts citing vouchers as a cushion), corporate news (Sheng Siong results, GovTech restructuring naming CDC vouchers as a core platform).</p>
+        <h4 style="margin-top:12px">Where it is most prominent</h4><p>Online news (157 items), radio bulletins (97), print (68); Lianhe Zaobao (69), The Straits Times (48), Money FM (37).</p>
+        <h4 style="margin-top:12px">Sustained or event-driven?</h4><p><span class="tag t-data">Data</span><strong>Event-driven.</strong> 41% of media items fall on 11–12 Jun and 29–30 Jul.</p></div>
+      <div class="quotes">
+        <blockquote class="neu">"Netizens added their own suggestions on how the CDC Voucher scheme could be expanded, such as extending it to transportation, focusing more on heartland shops instead of supermarkets, and linking CDC Vouchers to PayLah and PayNow."<cite>Analyst summary · AsiaOne FB, 7 May</cite></blockquote>
+        <blockquote class="neu">"CDC vouchers: A Band-Aid but still useful."<cite>ST podcast chapter title · The Usual Place, 30 Jul</cite></blockquote>
+        <blockquote class="neu">"Do you think that CDC vouchers should vary by size? If you have a family of 5, 6, 10…"<cite>Host to listeners · Money FM 89.3, 15 Jul</cite></blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:14px">
+    <h3>Volume over time: an announcement-driven conversation</h3>
+    <p class="muted" style="font-size:13.5px"><span class="tag t-data">Data</span>Weekly mentions, by week commencing. 26 social posts carrying 7 Apr content (dataset-dated 4 Jul) are excluded from this chart and shown in the phase table.</p>
+    <div class="chart" id="weekChart" role="img" aria-label="Weekly bar chart of media and social mentions from May to July 2026 with spikes at launch week and 29 July"></div>
+    <div class="keys"><span><span class="dot" style="background:var(--teal-dark)"></span>Media</span><span><span class="dot" style="background:var(--teal-light)"></span>Social posts</span></div>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Announcement phase</th><th>Social posts</th><th>Social engagement</th><th>Comments</th><th>Dominant comment reaction</th><th>Media items (pos / neg)</th><th>Signature narrative</th></tr></thead>
+      <tbody class="mono">
+        <tr><td style="font-family:var(--font)"><strong>7 Apr bring-forward</strong><br><span class="muted">dataset-dated 4 Jul</span></td><td>26</td><td>17,652</td><td>3,163</td><td><span class="chip c-chal">Negative</span></td><td>n/a (pre-window)</td><td style="font-family:var(--font)">"Just shifted, not extra"; fuel duty kept</td></tr>
+        <tr><td style="font-family:var(--font)"><strong>Pre-launch</strong><br><span class="muted">1 May – 10 Jun</span></td><td>12</td><td>9,696</td><td>1,144</td><td><span class="chip c-strong">Positive (70.5%)</span></td><td>66 (6 / 2)</td><td style="font-family:var(--font)">May Day reassurance; "when will it come?"</td></tr>
+        <tr><td style="font-family:var(--font)"><strong>Launch week</strong><br><span class="muted">11 – 17 Jun</span></td><td>46</td><td>15,488</td><td>2,315</td><td><span class="chip c-chal">Negative</span></td><td>98 (13 / 1)</td><td style="font-family:var(--font)">How to claim; supermarket deals; "doesn't fix inflation"</td></tr>
+        <tr><td style="font-family:var(--font)"><strong>Post-launch</strong><br><span class="muted">18 Jun – 28 Jul</span></td><td>27</td><td>5,377</td><td>1,106</td><td><span class="chip c-chal">Negative</span></td><td>86 (7 / 14)</td><td style="font-family:var(--font)">PM "fish" story; RTS scope debate; fraud case; spending-habit commentary</td></tr>
+        <tr><td style="font-family:var(--font)"><strong>$300 top-up</strong><br><span class="muted">29 – 31 Jul</span></td><td>32</td><td>12,135</td><td>1,630</td><td><span class="chip c-chal">Negative</span></td><td>72 (9 / 0)</td><td style="font-family:var(--font)">"$300 insufficient"; per-household; timing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3 GAPS -->
+<section id="gaps">
+  <div class="eyebrow">Section 3</div>
+  <h2>Perception gaps</h2>
+  <p class="lede">Each intended objective compared with what the public actually says. Alignment ratings are <span class="tag t-int">Interpretation</span> based on the evidence cited.</p>
+  <div class="keys"><span class="chip c-strong">Strongly aligned</span><span class="chip c-partial">Partially aligned</span><span class="chip c-mis">Misunderstood</span><span class="chip c-nv">Not visible in public discussion</span><span class="chip c-chal">Actively challenged</span></div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th style="width:17%">Intended objective or message</th><th style="width:21%">What the public perceives</th><th style="width:11%">Level of alignment</th><th style="width:29%">Evidence from the dataset</th><th style="width:22%">Communication gap</th></tr></thead>
+      <tbody>
+        <tr><td class="obj">A. Help with daily expenses</td><td>Useful for essentials, but runs out quickly, especially for larger families.</td><td><span class="chip c-partial">Partially aligned</span></td><td>Vox pops: diapers, milk powder, oil, hawker meals (Tamil Murasu, Zaobao, 29 Jul); "~85% spent on daily essentials and F&amp;B" (Mayor Low). Money FM listeners: "gone within the month"; "500 lasts about five months… festive periods much faster" (Zaobao vox pop).</td><td>The value story is told in aggregate ($4.64b) but not at household scale ("what $500 covers").</td></tr>
+        <tr><td class="obj">B. Ease cost-of-living pressures</td><td>A temporary plaster that doesn't keep pace with inflation, GST, utilities or fuel costs; "our own money back."</td><td><span class="chip c-chal">Actively challenged</span></td><td>Comment write-ups on AsiaOne (11 Jun, 551), Mothership (7 Apr, 571) and CNA (29 Jul, 353) all negative on adequacy. Red Ant column: "cannot cure chronic anxiety." Counter-evidence: economists, UOB index and scholars say it helps cushion.</td><td>Vouchers are discussed in isolation, not as one layer of a stack (U-Save, Cost-of-Living Special Payment, ComCare).</td></tr>
+        <tr><td class="obj">C. Support hawkers &amp; heartland merchants</td><td>Merchants strongly recognise it; the wider public rarely mentions it.</td><td><span class="chip c-partial">Partially aligned</span></td><td>Merchant testimony: +50% footfall (Berita Harian), +20–30% business (Zaobao), up to +20% sales (CNA Woodlands), 30–40% of customers pay with vouchers (durian sellers, ST 31 Jul). Only one comment write-up mentions heartland shops. Supermarket-promotion coverage (46 items) outnumbers merchant-benefit stories (9) about 5:1.</td><td>The "heartland dividend" is under-told relative to supermarket deals; public sees the benefit as personal only.</td></tr>
+        <tr><td class="obj">D. Keep spending local / neighbourhood vibrancy</td><td>Accepted in principle, but seen as too narrow (and too weak) to counter RTS Link outflows; calls to widen scope.</td><td><span class="chip c-partial">Partially aligned</span></td><td>SBF/RAS/SRA study: extend to pharmacies, convenience stores, F&amp;B (22 items); DFI wants Guardian/7-Eleven included; Zaobao: "hard to rely on vouchers alone to stimulate local spending"; ActionCity: "only a short-term boost". Merchants: customers drop ~30% once vouchers run out.</td><td>The rationale for current restrictions (why no online, pharmacies, transport) is not explained publicly.</td></tr>
+        <tr><td class="obj">E. Timely reassurance (bring-forward)</td><td>"Not extra help, just moved forward"; fear that the Jan 2027 tranche would vanish; then "why only $300?"</td><td><span class="chip c-mis">Misunderstood</span></td><td>Mothership 7 Apr write-up; PM Wong explicitly acknowledged the question on 1 May; Siow asked on 29 Jul why $300 &lt; $500 and answered "$800 total, same as last year."</td><td>Tranche timing and annual totals were never presented as one simple calendar.</td></tr>
+        <tr><td class="obj">F. Universal, per-household design</td><td>Unfair to larger families; also questioned why wealthy households receive it.</td><td><span class="chip c-chal">Actively challenged</span></td><td>Per-individual demands in 3 of 6 comment write-ups; Tamil Murasu (14 Jun) mothers ask for household-size allocation; Money FM host poll (15 Jul); Goody Feed: "why even your super atas rich friends also receive the CDC vouchers?"</td><td>No visible explanation of why vouchers are per-household and universal, or which schemes target larger and lower-income families.</td></tr>
+        <tr><td class="obj">G. Useful and accessible redemption</td><td>Easy for most, with pockets of friction for seniors and security worries about SMS links.</td><td><span class="chip c-partial">Partially aligned</span></td><td>94.5% claim rate; 500k+ households claimed on day one. WP MP asked about delivery for the elderly (rejected, 7 May); seniors collect paper copies (ST, 6 Jul); a resident "taught me how to download my CDC vouchers" (ST, 20 Jul); elderly trying to reuse redeemed vouchers (Berita Harian); fraud via forwarded SMS link (7 items); ONE FM warns "this is your private personal link."</td><td>Security hygiene ("your link is your wallet") and assisted-access options are not reaching those most at risk.</td></tr>
+        <tr><td class="obj">H. Expiry and usage rules</td><td>Barely discussed; promotions, not expiry, create time pressure.</td><td><span class="chip c-nv">Not visible</span></td><td>ST Forum (18 Jun): short supermarket promotions push "unnecessary or unwise purchases" despite validity to Dec 2027. Zaobao: residents juggle multiple voucher expiries (childcare vs CDC). A Money FM listener was unsure whether foreign-owned stalls can accept vouchers.</td><td>A low-risk gap for now, but multiple overlapping schemes create confusion.</td></tr>
+        <tr><td class="obj">I. Partnership / "we-first" spirit</td><td>Absent from public discussion.</td><td><span class="chip c-nv">Not visible</span></td><td>Appears only in official quotes (DPM Gan, Minister Chee). No public mention in comment write-ups or letters.</td><td>An abstract message with no public uptake.</td></tr>
+        <tr><td class="obj">J. Prudent reserves enable support</td><td>Partly rejected: "taxpayers' money returned"; surplus debate.</td><td><span class="chip c-chal">Actively challenged</span></td><td>AsiaOne write-up (11 Jun); Singapore Matters post on the budget surplus (30 Jul). Limited volume.</td><td>A fiscal message that invites cynicism when paired with modest amounts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:8px">Specific checks</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th style="width:26%">Question</th><th style="width:14%">Finding</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td class="obj">Does the public understand the purpose beyond financial support?</td><td><span class="chip c-nv">Largely no</span></td><td>Comment write-ups frame vouchers purely as household aid. The dual objective appears almost only in official and merchant quotes.</td></tr>
+        <tr><td class="obj">Is the benefit to hawkers and heartland merchants recognised?</td><td><span class="chip c-partial">By merchants, not public</span></td><td>9 merchant-benefit stories, all positive; 1 of 6 comment write-ups references heartland shops.</td></tr>
+        <tr><td class="obj">Are vouchers seen as meaningful cost-of-living help?</td><td><span class="chip c-chal">Contested</span></td><td>Welcomed by vox pops and experts; judged insufficient in 87.6% of comment volume.</td></tr>
+        <tr><td class="obj">Is redemption clear and accessible?</td><td><span class="chip c-partial">Mostly</span></td><td>High claim rates, but concerns about seniors, digital links and fraud.</td></tr>
+        <tr><td class="obj">Eligibility, value, expiry, digital access, merchant participation, restrictions?</td><td><span class="chip c-mis">Value &amp; eligibility design dominate</span></td><td>Value and per-household design are the most frequent. Eligibility: one radio caller noted PRs don't receive vouchers ("I pay my CPF, I pay my tax"). Participation and restrictions: RTS debate, DFI, listener questions. Expiry: minimal.</td></tr>
+        <tr><td class="obj">Comparisons with rising costs or other support?</td><td><span class="chip c-chal">Yes, unfavourably</span></td><td>Compared with GST hikes, utility bills (electricity tariff +17% from July, reported 29 Jul), fuel duties and cash payouts; calls to convert vouchers to cash.</td></tr>
+        <tr><td class="obj">Scepticism, misinformation or recurring misconceptions?</td><td><span class="chip c-mis">Yes</span></td><td>Misconception that the bring-forward cancels future support; uncertainty whether only local-owned businesses qualify; the "taxpayers' own money" framing; a scam-wary public (a Gold 905 host had to reassure listeners "it's not a scam"). The dataset also contains a Tamil Murasu item (17 Jul) on scam messages disguised as GST Voucher and MediSave information, an adjacent risk.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 4 AUDIENCE -->
+<section id="audience">
+  <div class="eyebrow">Section 4</div>
+  <h2>Audience and channel differences</h2>
+  <p class="lede">The dataset has no demographic fields, so audiences are described only by channel, language and platform, not by age, income or ethnicity.</p>
+  <div class="panel" style="display:grid;gap:14px">
+    <h3>Who holds the conversation on social</h3>
+    <div class="chart" id="chanChart" role="img" aria-label="Horizontal bars comparing share of social posts and engagement by channel type"></div>
+    <div class="keys"><span><span class="dot" style="background:var(--teal-light)"></span>Share of posts</span><span><span class="dot" style="background:var(--teal-dark)"></span>Share of engagement</span></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h3>Media vs social media</h3><p style="margin-top:8px"><span class="tag t-data">Data</span>Media is 83.9% neutral, with positive items (10.9%) outnumbering negative (5.3%) two to one. On social, 87.6% of comment volume sits on negatively-rated threads.</p><p style="margin-top:8px"><span class="tag t-int">Interpretation</span>Mainstream media carries the official and merchant narrative faithfully. The public verdict is formed in the comment sections beneath that same coverage.</p></div>
+    <div class="panel"><h3>Owned vs earned</h3><p style="margin-top:8px"><span class="tag t-data">Data</span>CDC, MP and Mayor channels posted 37 times (26% of social posts) but drew 1,868 engagements (3.1%) and 111 comments. Mainstream news pages drew 72.2% of engagement; digital and community pages (Mothership, Goody Feed, Singapore Matters, The Smart Local) drew 24.7%. The same "CDC Vouchers are back…" copy ran across five CDC accounts on 15–17 Jul.</p></div>
+    <div class="panel"><h3>Platform</h3><p style="margin-top:8px"><span class="tag t-data">Data</span>Facebook carried 125 of 143 posts and 99.0% of engagement. Instagram (14 posts, 406 engagements), TikTok (2) and LinkedIn (2) were marginal. The PM's TikTok "fish" clip reached people mainly through news reposts (Shin Min 1,805 engagements; Mothership 1,650), which still drew negative comment sections.</p></div>
+    <div class="panel"><h3>Language</h3><ul class="chev" style="margin-top:8px">
+      <li><strong>Chinese:</strong> hosts the behavioural critique. 10 of 17 negative media items are Lianhe Zaobao forum or commentary pieces on impulse spending, dependence and "welfare-trap" risk.</li>
+      <li><strong>Tamil:</strong> vox pops centre on large-family adequacy and extending use to children's enrichment classes; social posts drew very little comment (15 comments across 11 posts).</li>
+      <li><strong>Malay:</strong> Berita Harian leads with the merchant benefit (stall sales +50%) and flags elderly users presenting already-redeemed vouchers.</li>
+      <li><strong>English:</strong> 71% of social engagement; the main arena for per-household, quantum and "taxpayers' money" arguments; Money FM call-ins on duration and household size.</li></ul></div>
+    <div class="panel"><h3>Topic</h3><p style="margin-top:8px"><span class="tag t-data">Data</span>Media themes: launch mechanics (64), Jul 29 package (62), supermarket tie-ins (46), government reassurance (28), economic outlook (26), RTS/scope expansion (22), adequacy (11), merchant benefit (9), commentary on habits (8), fraud (7), GovTech (7), access (5), Johor benchmark (3).</p><p style="margin-top:8px"><span class="tag t-int">Interpretation</span>Commercial partners, not hawkers, are the most visible "beneficiaries" in coverage.</p></div>
+    <div class="panel"><h3>Time and announcement phase</h3><p style="margin-top:8px"><span class="tag t-data">Data</span>74% of social engagement fell on 7 Apr, 11 Jun and 29 Jul. Comment reaction turned from positive (May Day, pre-launch) to negative from launch onward. Media criticism clustered in the quieter post-launch weeks, when forum pages and columnists had room to weigh in.</p></div>
+  </div>
+</section>
+
+<!-- 5 RECS -->
+<section id="recs">
+  <div class="eyebrow">Section 5</div>
+  <h2>Messaging recommendations</h2>
+  <p class="lede">Ranked by size of perception gap, reputational impact and frequency. Example copy is illustrative.</p>
+  <div style="display:grid;gap:14px">
+
+  <article class="rec"><div class="rec-top"><h3>1 · Show the whole support stack, not a single voucher</h3><span><span class="chip p-high">High</span></span></div><p class="cat">Messages to reinforce · Misconceptions to correct</p>
+    <dl><div><dt>Perception gap</dt><dd>Objective B actively challenged: vouchers judged "temporary" and "insufficient" against inflation, GST, utilities (87.6% of comment volume).</dd></div>
+    <div><dt>Message to reinforce</dt><dd>CDC vouchers are one layer. Together with U-Save, the Cost-of-Living Special Payment and ComCare, support is sized to the household's situation.</dd></div>
+    <div><dt>Proof point</dt><dd>Enhanced U-Save "should fully offset" higher utility bills for most households in 4-room or smaller HDB flats until March 2027 (Siow, 29 Jul); $400–600 cash per adult in Sept; ComCare Interim Assistance of at least $250/month.</dd></div>
+    <div><dt>Audience</dt><dd>Facebook news-page commenters; HDB households.</dd></div>
+    <div><dt>Channel / format</dt><dd>"AT A GLANCE"-style carousel co-published with ST/CNA (the ST 29 Jul "At a glance" post was the top post: 4,739 engagements); pinned explainer comment on high-traffic threads.</dd></div>
+    <div><dt>Measure of success</dt><dd>Share of comment write-ups citing "doesn't address cost of living" falls; saves and shares per explainer post.</dd></div>
+    <div class="example"><strong>Example angle:</strong> "One household, four kinds of help: here's what a 3-room family receives between June 2026 and March 2027."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>2 · Publish one voucher calendar with annual totals</h3><span class="chip p-high">High</span></div><p class="cat">Misconceptions to correct · Information needing clearer explanation</p>
+    <dl><div><dt>Perception gap</dt><dd>Objective E misunderstood: "just shifted, not extra"; fear the Jan 2027 tranche was cancelled; "why only $300?"</dd></div>
+    <div><dt>Message to reinforce</dt><dd>FY2026: $500 (June) + $300 (January) = $800 per household, the same as FY2025, delivered earlier when it was needed most.</dd></div>
+    <div><dt>Proof point</dt><dd>Siow on 29 Jul: FY2026 total $800, same as FY2025; both tranches valid to 31 Dec 2027.</dd></div>
+    <div><dt>Audience</dt><dd>All households; English and Chinese news-page commenters (7 Apr and 29 Jul threads).</dd></div>
+    <div><dt>Channel / format</dt><dd>Simple timeline graphic on CDC and media pages; radio bulletins; repeat ahead of the January 2027 claim window.</dd></div>
+    <div><dt>Measure of success</dt><dd>Fewer "moved, not added" and "why less" questions in January 2027 comment write-ups.</dd></div>
+    <div class="example"><strong>Example copy:</strong> "Same $800 a year. Half a year sooner."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>3 · Explain the per-household design and point larger families to targeted help</h3><span class="chip p-high">High</span></div><p class="cat">Information needing clearer explanation</p>
+    <dl><div><dt>Perception gap</dt><dd>Objective F actively challenged: per-individual demands in 3 of 6 comment write-ups, Tamil Murasu vox pops and Money FM call-ins; "why do rich households get it too?"</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Vouchers are universal because every household shops in the heartland. Help that scales with need comes through schemes sized by individual, flat type and income.</dd></div>
+    <div><dt>Proof point</dt><dd>Cost-of-Living Special Payment paid per eligible adult; U-Save tiered by flat type ($440–$760 a year); ComCare income threshold relaxed Aug–Dec.</dd></div>
+    <div><dt>Audience</dt><dd>Larger families; Tamil- and Malay-language audiences; parents.</dd></div>
+    <div><dt>Channel / format</dt><dd>Q&amp;A features in Tamil Murasu and Berita Harian; Money FM and Oli 96.8 call-in segments with a CDC spokesperson.</dd></div>
+    <div><dt>Measure of success</dt><dd>Share of per-household complaints in community-language coverage; follow-up enquiries to ComCare and CDC hotlines.</dd></div>
+    <div class="example"><strong>Example angle:</strong> "Bigger family? Here's the help that grows with your household."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>4 · Make the heartland dividend visible, with faces and numbers</h3><span class="chip p-high">High</span></div><p class="cat">Positive narratives to amplify · Stories of benefit to hawkers and merchants</p>
+    <dl><div><dt>Perception gap</dt><dd>Objectives C and D are partially aligned: merchants feel the benefit, but the public frames vouchers as personal aid only. Supermarket deals out-cover hawker stories about 5:1.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Half of every voucher stays with neighbourhood hawkers and shops, and it shows at their stalls.</dd></div>
+    <div><dt>Proof point</dt><dd>52% of $4.64b spent at hawkers and heartland merchants, 64% of that on F&amp;B; stallholders report 20–50% more customers when a tranche lands.</dd></div>
+    <div><dt>Audience</dt><dd>Younger digital audiences (Low: vouchers draw younger customers to heartland shops); residents near at-risk estates such as Woodlands.</dd></div>
+    <div><dt>Channel / format</dt><dd>Short-form Reels and TikTok series co-created with Mothership or 8world (the "fish" story proves the format travels); district-specific guides (NE CDC's halal and vegetarian lists are a good base).</dd></div>
+    <div><dt>Measure of success</dt><dd>Mentions of hawkers/heartland in comment write-ups; engagement rate on owned channels (baseline 3.1% of engagement share).</dd></div>
+    <div class="example"><strong>Example angle:</strong> "$250 of your vouchers, one hawker's week": follow a single stall through a tranche, pairing takings with the owner's cost pressures.</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>5 · "Your link is your wallet": safety and assisted access</h3><span class="chip p-med">Medium</span></div><p class="cat">Information needing clearer explanation · Misconceptions to correct</p>
+    <dl><div><dt>Perception gap</dt><dd>Objective G partially aligned: fraud via forwarded SMS links; seniors relying on others to claim; elderly presenting already-redeemed vouchers.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Share your voucher link only with household members. Never hand your phone over to set up payments. Help is free at your Community Centre.</dd></div>
+    <div><dt>Proof point</dt><dd>Court case: $1,167 stolen via forwarded links (22 Jul, 7 items); paper vouchers and help available at CCs and SG Digital Community Hubs.</dd></div>
+    <div><dt>Audience</dt><dd>Seniors, caregivers, merchants and frontline service staff.</dd></div>
+    <div><dt>Channel / format</dt><dd>Mandarin and dialect radio (Capital 958, Gold 905, Warna, Oli); CC and hawker-centre posters; merchant counter decal ("check before you tap").</dd></div>
+    <div><dt>Measure of success</dt><dd>Fraud reports per tranche; assisted claims at CCs; merchant-reported redemption errors.</dd></div>
+    <div class="example"><strong>Example copy:</strong> "Your CDC voucher link is like cash. Keep it in the family."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>6 · Explain the rules on where vouchers can be used</h3><span class="chip p-med">Medium</span></div><p class="cat">Information needing clearer explanation · Mainstream media approach</p>
+    <dl><div><dt>Perception gap</dt><dd>Objective D partially aligned: industry (SBF/RAS/SRA, DFI) and the public ask for pharmacies, convenience stores, transport, online and PayNow; listeners unsure which stalls qualify.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Restrictions exist to keep spending in neighbourhood businesses. Any registered heartland merchant can join.</dd></div>
+    <div><dt>Proof point</dt><dd>Minister Tong on 7 May: online use "would deviate from the dual objective"; 24,000+ participating merchants.</dd></div>
+    <div><dt>Audience</dt><dd>Business community, commentators, policy-interested readers.</dd></div>
+    <div><dt>Channel / format</dt><dd>Op-ed or Q&amp;A in ST and Lianhe Zaobao timed with the RTS task-force response; merchant sign-up drive in Woodlands.</dd></div>
+    <div><dt>Measure of success</dt><dd>Tone of RTS-related coverage mentioning CDC vouchers; merchant sign-ups in northern estates.</dd></div>
+    <div class="example"><strong>Example angle:</strong> "Why your CDC vouchers can't be used online, and why that helps your kopitiam."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>7 · Encourage smart, unhurried spending</h3><span class="chip p-med">Medium</span></div><p class="cat">Messages to reinforce · Channel-specific approach (Chinese press)</p>
+    <dl><div><dt>Perception gap</dt><dd>Chinese-language commentary casts vouchers as fuelling impulse spending and dependence; ST Forum says short promotions rush shoppers.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Vouchers last until end-2027, so plan them into regular household spending.</dd></div>
+    <div><dt>Proof point</dt><dd>~85% of spend goes to daily essentials and F&amp;B (Mayor Low, 29 Jul); Money FM: "89% of the CDC vouchers go towards food and daily essentials… used wisely."</dd></div>
+    <div><dt>Audience</dt><dd>Chinese-language readers; budget-conscious households.</dd></div>
+    <div><dt>Channel / format</dt><dd>Lianhe Zaobao and 8world explainers; work with supermarket partners on longer promotion windows.</dd></div>
+    <div><dt>Measure of success</dt><dd>Fewer negative forum and commentary items in the post-launch window (baseline: 14).</dd></div>
+    <div class="example"><strong>Example copy:</strong> "Valid till Dec 2027. No rush, just plan."</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>8 · Rework owned channels for reach, not repetition</h3><span class="chip p-low">Low</span></div><p class="cat">Channel-specific approach (social)</p>
+    <dl><div><dt>Perception gap</dt><dd>Owned channels made 26% of posts but earned 3.1% of engagement; identical copy across five CDCs.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>District-specific, resident-led stories rather than one national announcement repeated five times.</dd></div>
+    <div><dt>Proof point</dt><dd>Mainstream news pages captured 72% of engagement; the best-performing owned content was district food guides and resident stories.</dd></div>
+    <div><dt>Audience</dt><dd>Residents in each district.</dd></div>
+    <div><dt>Channel / format</dt><dd>Collaboration posts with high-reach pages; Instagram/TikTok native video; community-manager responses on key threads.</dd></div>
+    <div><dt>Measure of success</dt><dd>Owned share of engagement; comments per owned post (baseline: 3).</dd></div>
+    <div class="example"><strong>Example angle:</strong> "Mdm Vasugi's weekly market run" (SW CDC's resident story format), rolled out as a five-district series.</div></dl></article>
+
+  <article class="rec"><div class="rec-top"><h3>9 · Lean on third-party validation</h3><span class="chip p-low">Low</span></div><p class="cat">Positive narratives to amplify · Mainstream media approach</p>
+    <dl><div><dt>Perception gap</dt><dd>Official claims ("useful and accessible") are discounted in comment sections; independent voices are more credible.</dd></div>
+    <div><dt>Message to reinforce</dt><dd>Independent experts and neighbouring governments see the scheme's design as effective.</dd></div>
+    <div><dt>Proof point</dt><dd>Johor modelled its Baucar Kasih on CDC vouchers ("an attractive initiative… supports small businesses"); UOB consumer index credits vouchers; scholars call the support "timely".</dd></div>
+    <div><dt>Audience</dt><dd>Opinion formers; business and policy readers.</dd></div>
+    <div><dt>Channel / format</dt><dd>Media briefings and backgrounders for ST, BT and CNA.</dd></div>
+    <div><dt>Measure of success</dt><dd>Independent-source quotes in coverage per tranche.</dd></div>
+    <div class="example"><strong>Example angle:</strong> "Across the Causeway, Johor is copying the CDC voucher model. Here's what they saw."</div></dl></article>
+  </div>
+</section>
+
+<!-- 6 CONCLUSION -->
+<section id="conclusion">
+  <div class="eyebrow">Section 6</div>
+  <h2>Executive conclusion</h2>
+  <div class="concl">
+    <div><h3>Five most important perception findings</h3><ol class="num" style="margin-top:10px">
+      <li><strong>Coverage is informative; the comment verdict is critical.</strong> 80.6% of mentions are neutral, yet <span class="stat-inline">87.6%</span> of the 9,358 social comments sit on negatively-rated threads.</li>
+      <li><strong>Goodwill peaked before the vouchers arrived.</strong> May Day reassurance drew positive reaction (70.5% of pre-launch comments); from launch day onward every phase was negative.</li>
+      <li><strong>Relief is judged against the cost of living, and found short.</strong> Recurring themes: temporary, insufficient, "our own money", doesn't offset GST, utilities or fuel.</li>
+      <li><strong>Per-household design is the most consistent critique</strong> across English social, Tamil press and radio call-ins.</li>
+      <li><strong>The merchant story is real but under-told.</strong> Stallholders report 20–50% uplifts and 52% of spend reaches the heartland, yet public commentary barely registers it, and supermarket promotions dominate coverage.</li></ol></div>
+    <div><h3>Three largest gaps</h3><ol class="num" style="margin-top:10px">
+      <li><strong>Cost-of-living relief vs "a temporary plaster"</strong> <span class="chip c-chal">Actively challenged</span></li>
+      <li><strong>Bring-forward as reassurance vs "shifted, not added"</strong> <span class="chip c-mis">Misunderstood</span></li>
+      <li><strong>The dual purpose (hawkers and neighbourhoods) vs a purely personal-benefit view</strong> <span class="chip c-nv">Not visible in public discussion</span></li></ol></div>
+    <div><h3>Three messaging priorities for the next quarter</h3><ol class="num" style="margin-top:10px">
+      <li><strong>One calendar, one stack</strong>: $800 for FY2026 plus U-Save, cash payouts and ComCare, explained before the January 2027 claim window.</li>
+      <li><strong>Make the heartland dividend visible</strong> through stall-level stories with data, co-created with high-reach pages.</li>
+      <li><strong>Safe, assisted redemption</strong> for seniors and merchants ahead of the January 2027 tranche.</li></ol></div>
+    <div><h3>Emerging risks to monitor</h3><ul class="chev" style="margin-top:10px">
+      <li><strong>RTS Link (early 2027):</strong> industry pressure to widen scope and increase value, with a risk of vouchers being framed as a "Band-Aid" for structural retail decline.</li>
+      <li><strong>Merchant dependence:</strong> footfall reportedly falls ~30% once vouchers are spent; calls to make vouchers permanent could raise expectations. Mayor Low says CDCs will "make the case to MOF".</li>
+      <li><strong>Digital fraud and scams:</strong> link-forwarding theft and scam messages impersonating government schemes.</li>
+      <li><strong>Utility and fuel costs:</strong> the July electricity tariff rise (+17%) may erode the perceived value of the January $300 tranche.</li>
+      <li><strong>Politicisation:</strong> isolated comments accuse grassroots events of vote-courting, and there is a partisan surplus debate. Volume is low, but worth watching.</li>
+      <li><strong>Behavioural narrative:</strong> "dependence / welfare trap" framing in Chinese-language opinion pages.</li></ul></div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="eyebrow">Appendix</div>
+  <h2>Method and limitations</h2>
+  <details open><summary>How the dataset was prepared</summary>
+    <ul class="chev" style="margin-top:12px">
+      <li><strong>Media (MSM tab):</strong> 322 items tagged "Common Flagship – CDC Vouchers Scheme" (157 online, 97 broadcast, 68 print; print and online versions counted separately). 139 further keyword matches were excluded because analysts had marked them as duplicates or passing mentions of other topics.</li>
+      <li><strong>Social (SM tab):</strong> 140 tagged posts plus 3 clearly relevant untagged posts = 143. Engagement, comments and shares are as supplied.</li>
+      <li><strong>Media sentiment:</strong> the source rated all 322 items neutral. Meltwater re-coded only items containing evaluative language (opinion, letters, editorials, vox-pop-led features, radio host or listener commentary): 35 positive, 17 negative. This is analyst judgement.</li>
+      <li><strong>Comment sentiment:</strong> assigned by the source's analysts per post, often at story-group level. Posts with zero comments also carry a label, so shares here are weighted by comment count. Only 6 posts have narrative write-ups; no verbatim comments are included in the dataset.</li>
+      <li><strong>Channel grouping:</strong> "Owned" = CDC pages plus MPs and Mayors; "Mainstream media pages" = ST, CNA, 8world, Lianhe Zaobao, Berita Harian/Mediacorp, Tamil Murasu/Seithi, AsiaOne, Shin Min; "Digital/community" = Mothership, Goody Feed, Singapore Matters, The Smart Local.</li>
+    </ul></details>
+  <details><summary>Known data issues</summary>
+    <ul class="chev" style="margin-top:12px">
+      <li>26 social posts dated 4 Jul 2026 carry content from the 7 Apr 2026 announcement (texts reference "Apr. 7"), which points to a day/month swap in the date field. They fall outside the stated window and are reported as a separate phase.</li>
+      <li>The "Earned or Owned", "CDC Tag" and "Pillar Tag" columns in the social tab contain spreadsheet errors (#REF), so channel ownership was derived from account names.</li>
+      <li>Nine TV items (CNA, Channel 5/8, Suria, Vasantham) have headlines only, with no transcript. Some Chinese radio transcripts are machine-segmented.</li>
+      <li>A few tagged items only mention vouchers in passing (e.g., durian prices, migrant-labour opinion); they were retained as tagged.</li>
+      <li>No age, income, ethnicity or location fields exist. Language reflects the outlet, not the audience's identity.</li>
+    </ul></details>
+  <details><summary>Where the data cannot support a conclusion</summary>
+    <ul class="chev" style="margin-top:12px">
+      <li>What commenters specifically said on high-volume negative threads that lack a write-up (e.g., the PM "fish" reposts, 858 comments combined) cannot be determined.</li>
+      <li>Whether perceptions differ by age or income cannot be tested; senior-specific issues are inferred only from content that explicitly mentions seniors.</li>
+      <li>The scale of misinformation cannot be quantified; only individual instances are observable.</li>
+      <li>Objectives are drawn from official remarks in coverage, not from PA/CDC communication plans, which were not supplied.</li>
+    </ul></details>
+</section>
+
+<footer class="foot"><span class="logo">❮◎❯ Meltwater</span><span>Prepared from the supplied dataset "CDC Quarterly" · Analysis period 1 May – 31 Jul 2026</span></footer>
+</main>
+
+<script>
+(function(){
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e;};
+
+  function sentChart(){
+    const host=document.getElementById('sentChart'); host.innerHTML='';
+    const rows=[
+      {l:'Media content',s:'322 items',v:[35,270,17,0]},
+      {l:'Social post content',s:'143 posts',v:[30,105,7,1]},
+      {l:'Social comment sections',s:'9,358 comments',v:[807,102,8193,256]}
+    ];
+    const cols=[css('--pos'),css('--neu'),css('--neg'),css('--line')];
+    const W=760,left=170,right=20,bh=30,gap=26,top=10,H=top+rows.length*(bh+gap)+14;
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`});
+    const iw=W-left-right;
+    [0,25,50,75,100].forEach(p=>{const x=left+iw*p/100;svg.appendChild(el('line',{x1:x,x2:x,y1:top-4,y2:H-18,class:'grid'}));svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle'},p+'%'));});
+    rows.forEach((r,i)=>{
+      const y=top+i*(bh+gap); const tot=r.v.reduce((a,b)=>a+b,0); let x=left;
+      svg.appendChild(el('text',{x:0,y:y+13,class:'lbl'},r.l));
+      svg.appendChild(el('text',{x:0,y:y+28},r.s));
+      r.v.forEach((v,j)=>{ if(!v) return; const w=iw*v/tot;
+        svg.appendChild(el('rect',{x:x,y:y,width:Math.max(w-1,0.5),height:bh,fill:cols[j],rx:2}));
+        const pct=v/tot*100; if(w>34){svg.appendChild(el('text',{x:x+w/2,y:y+bh/2+4,'text-anchor':'middle',class:'val',fill: j===1||j===3? css('--ink'):'#fff',style:`fill:${j===1||j===3?css('--ink'):'#fff'}`},pct.toFixed(1)+'%'));}
+        x+=w; });
+    });
+    host.appendChild(svg);
+  }
+
+  function weekChart(){
+    const host=document.getElementById('weekChart'); host.innerHTML='';
+    const d=[['27 Apr',14,3],['4 May',12,1],['11 May',2,0],['18 May',12,2],['25 May',13,4],['1 Jun',12,1],['8 Jun',87,45],['15 Jun',20,7],['22 Jun',10,6],['29 Jun',3,4],['6 Jul',7,0],['13 Jul',33,8],['20 Jul',23,4],['27 Jul',74,32]];
+    const W=760,H=310,left=40,right=16,top=44,bottom=40; const iw=W-left-right, ih=H-top-bottom;
+    const max=140; const svg=el('svg',{viewBox:`0 0 ${W} ${H}`});
+    [0,35,70,105,140].forEach(t=>{const y=top+ih-ih*t/max;svg.appendChild(el('line',{x1:left,x2:W-right,y1:y,y2:y,class:'grid'}));svg.appendChild(el('text',{x:left-6,y:y+4,'text-anchor':'end'},t));});
+    const bw=iw/d.length;
+    d.forEach((r,i)=>{const x=left+i*bw+bw*0.18,w=bw*0.64; const hm=ih*r[1]/max,hs=ih*r[2]/max; let y=top+ih;
+      svg.appendChild(el('rect',{x:x,y:y-hm,width:w,height:hm,fill:css('--teal-dark'),rx:1.5}));
+      svg.appendChild(el('rect',{x:x,y:y-hm-hs,width:w,height:hs,fill:css('--teal-light'),rx:1.5}));
+      if(r[1]+r[2]>=30) svg.appendChild(el('text',{x:x+w/2,y:y-hm-hs-5,'text-anchor':'middle',class:'val'},r[1]+r[2]));
+      svg.appendChild(el('text',{x:x+w/2,y:H-bottom+16,'text-anchor':'middle'},r[0]));
+    });
+    const ann=(i,txt,y)=>{const x=left+i*bw+bw/2; svg.appendChild(el('text',{x:Math.min(Math.max(x,50),W-70),y:y||16,'text-anchor':'middle',class:'ann'},txt));};
+    ann(0,'May Day Rally'); ann(6,'Launch · 11 Jun'); ann(11,'RTS study · fraud case',30); ann(13,'$300 top-up · 29 Jul');
+    svg.appendChild(el('text',{x:left,y:H-4},'Week commencing (Mon). Week of 27 Apr covers 1–3 May only.'));
+    host.appendChild(svg);
+  }
+
+  function chanChart(){
+    const host=document.getElementById('chanChart'); host.innerHTML='';
+    const rows=[['Mainstream media pages',56.6,72.2],['Digital & community pages',17.5,24.7],['Owned: CDC / MP / Mayor',25.9,3.1]];
+    const W=760,left=190,right=50,bh=14,top=8,rowH=52,H=top+rows.length*rowH+18;
+    const iw=W-left-right; const svg=el('svg',{viewBox:`0 0 ${W} ${H}`});
+    [0,25,50,75].forEach(p=>{const x=left+iw*p/80;svg.appendChild(el('line',{x1:x,x2:x,y1:top-4,y2:H-18,class:'grid'}));svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle'},p+'%'));});
+    rows.forEach((r,i)=>{const y=top+i*rowH;
+      svg.appendChild(el('text',{x:0,y:y+20,class:'lbl'},r[0]));
+      [[r[1],css('--teal-light')],[r[2],css('--teal-dark')]].forEach((b,j)=>{const w=iw*b[0]/80;const yy=y+j*(bh+4)+4;
+        svg.appendChild(el('rect',{x:left,y:yy,width:w,height:bh,fill:b[1],rx:2}));
+        svg.appendChild(el('text',{x:left+w+6,y:yy+11,class:'val'},b[0].toFixed(1)+'%'));});
+    });
+    host.appendChild(svg);
+  }
+  function draw(){sentChart();weekChart();chanChart();}
+  draw();
+  try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);}catch(e){}
+  try{new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});}catch(e){}
+})();
+</script>
+
+</body></html>
